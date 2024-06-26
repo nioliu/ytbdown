@@ -12,6 +12,16 @@ var videoName = new(string)
 var video = new(string)
 var format = new(string)
 
+func init() {
+	// 设置代理
+	//proxyURL, err := url.Parse("http://your-proxy-server:port")
+	//if err != nil {
+	//	log.Fatal("error parsing proxy URL: %w", err)
+	//}
+	//client.HTTPClient.Transport = &http.Transport{Proxy: http.ProxyURL()}
+
+	client.ChunkSize = youtube.Size1Mb * 5
+}
 func main() {
 	p := pflag.StringP("method", "m", "info", "Specify a func to run, has: info, downloadSingle, downloadAll")
 	pflag.StringVarP(videoUrl, "video_url", "u", "", "Specify the video url")
